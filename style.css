@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+:root {
+    --bgcol: white;
+    --cntcol: #ff00c8;
+    --black:  #080220;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--cntcol);
+    font-family: 'Public Pixel',"Ubuntu", sans-serif;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle; 
+}
+
+.inner {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1400px;
+}
+
+.profile_pic{
+    margin-bottom: 1em;
+}
+
+.profile_pic img{
+    display: block;
+    margin: auto;
+    border-radius: 160px;
+    border-style: solid;
+    border-color:var(--cntcol);
+    border-width: 4px;
+    width: 300px;
+    height: 300px;
+}
+
+.name {
+    font-size: xx-large;
+}
+
+.textglitch {
+    --dist: 5px;
+    text-shadow: var(--dist) 0px var(--dist) aqua, calc(0px - var(--dist)) 0px var(--dist) aqua;
+}
+
+.wrapper {
+    --blur: 0.7;
+    position:relative;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    border-radius:1rem;
+    
+}
+  
+.blurred-wrapper {
+    
+    position: absolute;
+    filter: blur(1rem);
+    
+    transform: scale(
+      var(--blur),
+      0.001
+    )
+      
+}
+  
+.blurred {
+    
+    transform: scale(
+      calc( 1/var(--blur) ),
+      1000
+    )
+      
+}
+
+.still {
+    z-index: 1;
+}
+
+.project_list{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 10px;
+}
+
+.window{
+    --pad: 5px;
+    width: 400px;
+    padding: var(--pad);
+    background-color: var(--bgcol);
+    color: var(--cntcol);
+    border-color: var(--cntcol);
+    border-width: 3px;
+    border-style: solid;
+}
+
+.window .header{
+    margin-bottom: var(--pad);
+}
+
+.header{
+    width: 100%;
+    display: flex;
+}
+
+.header .h1{
+    flex: 1;
+    width: fit-content;
+}
+
+.cross{
+    flex: 1;
+    width: 100%;
+    text-align: right;
+    user-select: none;
+}
+
+.window .window-content{
+    background-color: var(--cntcol);
+    color: var(--bgcol);
+    padding: 5px;
+    text-align: center;
+}
+
+.window-content .txt-content{
+    display: flex;
+
+    align-items: center;
+    margin: 20px 30px;
+    gap: 15px;
+    text-align: left;
+}
+
+.txt-content p{
+    flex: 3;
+}
+
+.txt-content img{
+    flex: 1;
+    width: 100%;
+}
+
+.window-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.window .window-content button{
+    padding: 5px;
+    margin: 5px;
+    background-color: var(--cntcol);
+    color: var(--bgcol);
+    border-color: var(--bgcol);
+    border-width: 3px;
+    border-style: solid;
+}
+
+.window .window-content button:hover{
+    background-color: var(--bgcol);
+    color: var(--cntcol);
+    
+}
+
+.sidenav{
+    top: 50px;
+    left: 50px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    width: 25%;
+    border-width: 4px;
+    border-color: var(--cntcol);
+    border-style: solid;
+}
+
+.sidenav .date{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid var(--cntcol);
+}
+
+.sidenav .pagelist{
+    padding: 10px 20px;
+}
+
+.sidenav a{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    text-decoration: none;
+    color: var(--cntcol);
+}
+
+.sidenav a:hover{
+    color: var(--black);
+    background-color: var(--cntcol);
+}
+
+.sidenav .active{
+    color: var(--black);
+    background-color: var(--cntcol);
+}
