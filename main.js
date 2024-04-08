@@ -34,12 +34,36 @@ function RandomOffset(element){
     element.style.transform = `translate(${x}px,${y}px)`;
 }
 
-let Chess3 = new Project("Check Mates", "Game Dev", "", "", "Les echecs mais en mieux")
+function SetList(list, name){
+    if(list){
+        Projects.forEach((element) => {
+            if(element.topic == name){
+                list.innerHTML += element
+            }
+        });
+    }
+}
+
+let Projects = [
+    new Project("Check Mates", "Game Dev", "https://play.google.com/store/apps/details?id=com.Mono8.CheckMates&hl=FR", "", "Les echecs mais en mieux")
+];
+
 
 window.onload = function(){
 
-    document.getElementById("project-list").innerHTML = 
-    Chess3;
+    let projectList = document.getElementById("project-list");
+    let mathList = document.getElementById("math-project-list");
+    let musicList = document.getElementById("music-project-list");
+    let gameDevList = document.getElementById("gamedev-project-list");
+
+    if(projectList){
+        Projects.forEach((element) => 
+            projectList.innerHTML += element
+        );
+    }
+    SetList(mathList, "Maths");
+    SetList(musicList, "Music");
+    SetList(gameDevList, "Game Dev");
 
     let projectWindows = document.getElementsByClassName("window");
     Array.prototype.forEach.call(projectWindows, RandomOffset);

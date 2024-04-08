@@ -38,6 +38,10 @@ body {
     max-width: 1400px;
 }
 
+.main_card{
+    margin-bottom: 20px;
+}
+
 .profile_pic{
     margin-bottom: 1em;
 }
