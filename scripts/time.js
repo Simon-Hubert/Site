@@ -6,12 +6,11 @@ function SetTime(){
     let sesh = "am";
 
     let yy = date.getFullYear();
-    let MM = date.getMonth();
+    let MM = date.toLocaleString('en', { month: 'long' });
     let dd = date.getDate();
 
     hh = (hh < 10)? "0" + hh : hh;
     mm = (mm < 10)? "0" + mm : mm;
-    MM = (MM < 10)? "0" + MM : MM;
     dd = (dd < 10)? "0" + dd : dd;
 
     if(hh == 0){
@@ -21,7 +20,7 @@ function SetTime(){
         hh -= 12;
         sesh = "pm";
     }
-    document.getElementById("date").innerHTML = `<span>${dd}-${MM}-${yy.toString().substring(2)}</span><span>${hh}:${mm} ${sesh}</span>`;
+    document.getElementById("date").innerHTML = `<span>${dd}-${MM.substring(0,3)}-${yy.toString().substring(2)}</span><span>${hh}:${mm} ${sesh}</span>`;
     setTimeout(SetTime, 60000);
 }
 
