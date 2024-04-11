@@ -1,0 +1,6 @@
+@import url(/style.css);
+
+#main-canvas{
+    margin-top: 300px;
+    border: 5px red solid;
+}
