@@ -10,6 +10,12 @@ class Vector2{
     }
     valueOf(){ throw "nanananan (c'est un vecteur)"}
 
+    copy(){ return new Vector2(this.x, this.y) }
+
+    add(v){
+        if(isVector2(v)) return new Vector2(this.x + v.x, this.y + v.y);
+        if(isScalar(v)) return new Vector2(this.x + v, this.y + v);
+    }
     mul(v){
         if(isVector2(v)) return new Vector2(this.x*v.x, this.y*v.y);
         if(isScalar(v)) return new Vector2(this.x*v, this.y*v);

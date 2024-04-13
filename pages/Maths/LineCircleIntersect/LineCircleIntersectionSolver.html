@@ -25,21 +25,23 @@
     <div class="outer">
         <div class="middle">
             <div class="inner">
-                p1
-                <input type="text" placeholder="0" id="circle-center-x" autocomplete="off">p2
-                <input type="text" placeholder="0" id="circle-center-y" autocomplete="off">R
-                <input type="text" placeholder="0" id="radius" autocomplete="off">
-                <input type="text" placeholder="0" id="point1-x" autocomplete="off">
-                <input type="text" placeholder="0" id="point1-y" autocomplete="off">
-                <input type="text" placeholder="0" id="point2-x" autocomplete="off">
-                <input type="text" placeholder="0" id="point2-y" autocomplete="off">
-                <canvas id="main-canvas" width="500" height="500"></canvas>
+                <div class="input-fields">
+                    <div class="input-header">Please input the circle and line</div>
+                    <div class="input-label"><span>Center x :</span><input type="text" placeholder="Cx" id="circle-center-x" autocomplete="off"></div>
+                    <div class="input-label"><span>Center y :</span><input type="text" placeholder="Cy" id="circle-center-y" autocomplete="off"></div>
+                    <div class="input-label"><span>Radius :</span><input type="text" placeholder="R" id="radius" autocomplete="off"></div>
+                    <div class="input-label"><span>A point x :</span><input type="text" placeholder="Ax" id="point1-x" autocomplete="off"></div>
+                    <div class="input-label"><span>A point y :</span><input type="text" placeholder="Ay" id="point1-y" autocomplete="off"></div>
+                    <div class="input-label"><span>B point x :</span><input type="text" placeholder="Bx" id="point2-x" autocomplete="off"></div>
+                    <div class="input-label"><span>B point y :</span><input type="text" placeholder="By" id="point2-y" autocomplete="off"></div>
                 </div>
+                <canvas id="main-canvas" width="500" height="500"></canvas>
+                <div class="outputs" id="outputs"></div>
             </div>
         </div>
     </div>
-
-
+    
+    
     <script src="/scripts/time.js"></script>
     <script src="/main.js"></script>
     <script src="/pages/Maths/math-utils.js"></script>
