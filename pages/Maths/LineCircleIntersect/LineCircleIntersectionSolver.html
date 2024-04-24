@@ -10,6 +10,10 @@
     <link rel="shortcut icon" type="image/png" href=""> <!-- Mettre l'icone-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Showmielle</title>
+
+    <!--MATHJAX FOR LaTeX RENDERING-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="sidenav">
@@ -36,7 +40,20 @@
                     <div class="input-label"><span>B point y :</span><input type="text" placeholder="By" id="point2-y" autocomplete="off"></div>
                 </div>
                 <canvas id="main-canvas" width="500" height="500"></canvas>
-                <div class="outputs" id="outputs"></div>
+                <div class="terminal">
+                    <div class="terminal-title">Outputs</div>
+                    <div class="terminal-content">
+                        <p id="output1"></p>
+                        <p id="output2"></p>
+                    </div>
+                </div>
+
+                <div class="terminal">
+                    <div class="terminal-title">Calculations</div>
+                    <div class="terminal-content" id="nerd-zone">
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </div>

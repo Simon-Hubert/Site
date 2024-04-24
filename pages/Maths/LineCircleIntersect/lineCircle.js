@@ -142,17 +142,22 @@ function UpdateOutput(){
     if(interPoints != undefined){
         IP1.center = interPoints[0];
         IP2.center = interPoints[1];
+        outputBox1.innerHTML = `Point 1 : x=${Math.round(interPoints[0].x*1000)/1000}, y=${Math.round(interPoints[0].y*1000)/1000}`
+        outputBox2.innerHTML = `Point 2 : x=${Math.round(interPoints[1].x*1000)/1000}, y=${Math.round(interPoints[1].y*1000)/1000}`
     }
     else{
         IP1.center= new Vector2(1000,1000);
         IP2.center= new Vector2(1000,1000);
     }
+
 }
 
 function LineInterCircle(center, radius, pt1, pt2){
     let a = pt2.y - pt1.y;
     let b = pt2.x - pt1.x;
-    let c = -(pt1.y*pt2.x) + pt1.x*pt2.y;
+    let c = pt2.x*pt1.y - pt1.x*pt2.y;
+
+    console.log(a,b,c);
 
     let invert = b==0;
     if(invert){
@@ -163,10 +168,6 @@ function LineInterCircle(center, radius, pt1, pt2){
     let m = (a/b)*(a/b) + 1;
     let n = 2*(a*c/(b*b) - a*center.y/b - center.x);
     let o = center.x*center.x + (c/b - center.y)*(c/b - center.y) - radius*radius;
-
-    console.log(`M : ${m}`);
-    console.log(`N : ${n}`);
-    console.log(`O : ${o}`);
 
     let Delta = n*n - 4*(m*o);
 
@@ -181,13 +182,15 @@ function LineInterCircle(center, radius, pt1, pt2){
     let y2 = (a * x2 + c)/b;
 
     if(invert){
-        return [new Vector2(y1, x1), new Vector2(y2, x2)];
+        return [new Vector2(-y1, x1), new Vector2(-y2, x2)];
     }
 
     return [new Vector2(x1, y1), new Vector2(x2, y2)];
 }
 
 let inputboxes = document.querySelectorAll("input")
+const outputBox1 = document.getElementById("output1");
+const outputBox2 = document.getElementById("output2");
 Array.prototype.forEach.call(inputboxes, SetNumberFilter);
 
 let C = new Circle(new Vector2(0,0), 0);
@@ -222,3 +225,89 @@ document.getElementById("point1-x").addEventListener("input", Update);
 document.getElementById("point1-y").addEventListener("input", Update);
 document.getElementById("point2-x").addEventListener("input", Update);
 document.getElementById("point2-y").addEventListener("input", Update);
+
+//NerdZone
+
+const mathTerminal = document.getElementById("nerd-zone");
+WriteMaths();
+
+function WriteMaths(){
+    let center = C.center;
+    let radius = C.radius;
+    let pt1 = D.point1;
+    let pt2 = D.point2;
+
+    let a = pt2.y - pt1.y;
+    let b = pt2.x - pt1.x;
+    let c = pt2.x*pt1.y - pt1.x*pt2.y;
+
+    let invert = b==0;
+    if(invert){
+        a = pt2.x - pt1.x;
+        b = pt2.y - pt1.y;
+    }
+
+    let m = (a/b)*(a/b) + 1;
+    let n = 2*(a*c/(b*b) - a*center.y/b - center.x);
+    let o = center.x*center.x + (c/b - center.y)*(c/b - center.y) - radius*radius;
+
+    let Delta = n*n - 4*(m*o);
+
+    let x1 = (-n + Math.sqrt(Delta))/(2*m);
+    let x2 = (-n - Math.sqrt(Delta))/(2*m);
+    let y1 = (a * x1 + c)/b;
+    let y2 = (a * x2 + c)/b;
+
+    let isInit = (center.x == 0 && center.y == 0 && radius == 0&& pt1.x == 0 && pt2.x ==0 && pt1.y == 0 && pt2.y ==0);
+    let Ax = isInit ? "A_{x}" : pt1.x;
+    let Bx = isInit ? "B_{x}" : pt2.x;
+    let Ay = isInit ? "A_{y}" : pt1.y;
+    let By = isInit ? "B_{y}" : pt2.y;
+
+    let A = isInit ? "B_{y} - A_{y}" : a;
+    let B = isInit ? "B_{x} - A_{x}" : b;
+    let Cc = isInit ? "A_{y}B_{x} - A_{x}B_{y}" : c;
+
+
+    //--------------- CARTESIAN EQUATION --------------
+
+    let txt = "First, let's find the cartesian equation of the line D going through A and B :";
+    txt += `$$
+    \\begin{align}
+    M \\left\\{ \\begin{matrix} x \\\\ y \\end{matrix}\\right\\}
+    \\in D &\\Leftrightarrow det(\\overrightarrow{AM}, \\overrightarrow{AB}) = 0 \\\\
+    &\\Leftrightarrow (${Bx} - ${Ax})(y - ${Ay}) - (${By} - ${Ay})(x - ${Ax}) = 0 \\\\`
+    if(!isInit){
+        txt += `&\\Leftrightarrow (${Bx-Ax})(y - ${Ay}) - (${By-Ay})(x - ${Ax}) = 0 \\\\`;
+    }
+    txt += `&\\Leftrightarrow y(${Bx} - ${Ax})-${Ay}(${Bx} - ${Ax}) - x(${By} - ${Ay}) + ${Ax}(${By} - ${Ay}) = 0 \\\\`;
+    if(!isInit){
+        txt += `&\\Leftrightarrow y(${Bx-Ax})-${Ay*(Bx - Ax)} - x(${By-Ay}) + ${Ax*(By - Ay)} = 0 \\\\`;
+    }
+    else{
+        txt += `&\\Leftrightarrow x(${By} - ${Ay}) - y(${Bx} - ${Ax}) + ${Ay}(${Bx} - ${Ax}) - ${Ax}(${By} - ${Ay}) = 0 \\\\`;
+        txt += `&\\Leftrightarrow x(${By} - ${Ay}) - y(${Bx} - ${Ax}) + ${Ay}${Bx} - ${Ax}${By} = 0 \\\\`;
+    }
+    if(!isInit){
+        txt += `&\\Leftrightarrow x(${By - Ay}) - y(${Bx - Ax}) + ${Ay*Bx} - ${Ax*By} = 0 \\\\`;
+    }
+    txt += `&\\Leftrightarrow ax - by + c = 0 \\\\`;
+    txt += `where \\; a = ${A} \\;, b=${B} \\;, c=${Cc}`;
+    txt +=`\\end{align}$$`;
+
+    //--------------- ACTUAL SOLVE --------------
+
+    txt += "\nThen, we can solve this equation to find the intersection points :";
+    txt += "$$ M $$";
+
+    mathTerminal.innerHTML = txt;
+    MathJax.typeset();
+}
+
+document.getElementById("circle-center-x").addEventListener("input", WriteMaths);
+document.getElementById("circle-center-y").addEventListener("input", WriteMaths);
+document.getElementById("radius").addEventListener("input", WriteMaths);
+document.getElementById("point1-x").addEventListener("input", WriteMaths);
+document.getElementById("point1-y").addEventListener("input", WriteMaths);
+document.getElementById("point2-x").addEventListener("input", WriteMaths);
+document.getElementById("point2-y").addEventListener("input", WriteMaths);
