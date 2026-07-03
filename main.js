@@ -45,7 +45,8 @@ function SetList(list, name){
 }
 
 let Projects = [
-    new Project("Check Mates", "Game Dev", "https://play.google.com/store/apps/details?id=com.Mono8.CheckMates&hl=FR", "", "Les echecs mais en mieux")
+    new Project("Check Mates", "Game Dev", "https://play.google.com/store/apps/details?id=com.Mono8.CheckMates&hl=FR", "", "Les echecs mais en mieux"),
+    new Project("Line Circle Intersection", "Maths", "pages/Maths/LineCircleIntersect/LineCircleIntersectionSolver.html", "", "Un solveur d'equation mathématiques"),
 ];
 
 

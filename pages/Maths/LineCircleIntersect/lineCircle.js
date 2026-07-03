@@ -263,10 +263,16 @@ function WriteMaths(){
     let Bx = isInit ? "B_{x}" : pt2.x;
     let Ay = isInit ? "A_{y}" : pt1.y;
     let By = isInit ? "B_{y}" : pt2.y;
+    let Cx = isInit ? "C_{x}" : center.x;
+    let Cy = isInit ? "C_{y}" : center.y;
 
     let A = isInit ? "B_{y} - A_{y}" : a;
     let B = isInit ? "B_{x} - A_{x}" : b;
     let Cc = isInit ? "A_{y}B_{x} - A_{x}B_{y}" : c;
+
+    let M = isInit ? "\\left( \\frac{b}{a} \\right ) ^{2} + 1" : m;
+    let N = isInit ? "2 \\left( \\frac{bc}{a} + \\frac{b C_{x}}{a} - C_{y} \\right)" : n;
+    let O = isInit ? "\\left( \\frac{c}{a} + C_{x}\\right)^{2} + C_{y}^{2} - r^{2} " : o;
 
 
     //--------------- CARTESIAN EQUATION --------------
@@ -292,14 +298,50 @@ function WriteMaths(){
         txt += `&\\Leftrightarrow x(${By - Ay}) - y(${Bx - Ax}) + ${Ay*Bx} - ${Ax*By} = 0 \\\\`;
     }
     txt += `&\\Leftrightarrow ax - by + c = 0 \\\\`;
-    txt += `where \\; a = ${A} \\;, b=${B} \\;, c=${Cc}`;
+    txt += `where &\\; a = ${A} \\;, b=${B} \\;, c=${Cc}`;
     txt +=`\\end{align}$$`;
 
     //--------------- ACTUAL SOLVE --------------
 
-    txt += "\nThen, we can solve this equation to find the intersection points :";
-    txt += "$$ M $$";
+    txt += "\nThen, use this equation to find the intersection points with the circle C:";
+    txt += `$$ \\begin{align}
+    M \\left\\{ \\begin{matrix} x \\\\ y \\end{matrix}\\right\\}
+    \\in D \\cap C &\\Leftrightarrow  \\left\\{ \\begin{matrix} ax - by + c = 0 \\\\ (x-${Cx})^{2} + (y-${Cy})^{2} - r^{2} = 0 \\end{matrix} \\right. \\\\ `;
+    if(!isInit){
+        txt += `&\\Leftrightarrow  \\left\\{ \\begin{matrix} ${A}x - ${B}y + ${Cc} = 0 \\\\ (x-${Cx})^{2} + (y-${Cy})^{2} - r^{2} = 0 \\end{matrix} \\right. \\\\ `;
+        txt += `&\\Leftrightarrow  \\left\\{ \\begin{matrix} x = \\frac{${B}y + ${Cc}}{${A}}\\\\ (x-${Cx})^{2} + (y-${Cy})^{2} - r^{2} = 0 \\end{matrix} \\right. \\\\ `;
+        txt += `&\\Leftrightarrow  \\left\\{ \\begin{matrix} x = \\frac{${B}y + ${Cc}}{${A}}\\\\ (\\frac{${B}y + ${Cc}}{${A}}-${Cx})^{2} + (y-${Cy})^{2} - r^{2} = 0 \\end{matrix} \\right. \\\\ `;
+        txt += `&\\Leftrightarrow  \\left\\{ \\begin{matrix} x = \\frac{${B}y + ${Cc}}{${A}} \\\\ (${M})y^{2} + (${N})y + (${O}) = 0 \\end{matrix} \\right. \\\\ `;
+        txt += `&\\Leftrightarrow  \\left\\{ \\begin{matrix} x = \\frac{${B}y + ${Cc}}{${A}} \\\\ my^{2} + ny + o = 0 \\end{matrix} \\right. \\\\ `;
+    }
+    else{
+        txt += `&\\Leftrightarrow  \\left\\{ \\begin{matrix} x = \\frac{by + c}{a}\\\\ (\\frac{by + c}{a}-${Cx})^{2} + (y-${Cy})^{2} - r^{2} = 0 \\end{matrix} \\right. \\\\ `;
+        txt += `&\\Leftrightarrow  \\left\\{ \\begin{matrix} x = \\frac{by + c}{a} \\\\ (${M})y^{2} + (${N})y + (${O}) = 0 \\end{matrix} \\right. \\\\ `;
+        txt += `&\\Leftrightarrow  \\left\\{ \\begin{matrix} x = \\frac{by + c}{a} \\\\ my^{2} + ny + o = 0 \\end{matrix} \\right. \\\\ `;
+    }
 
+    
+    txt += `where &\\; m = ${M} \\;, n=${N} \\;, o=${O}`;
+    txt +=`\\end{align}$$`;
+
+    txt += "\n We use the Quadratic formula to solve for y :";
+
+    txt += `$$ \\begin{align}
+    M \\left\\{ \\begin{matrix} x \\\\ y \\end{matrix}\\right\\}
+    \\in D \\cap C &\\Leftrightarrow  \\left\\{ \\begin{matrix} x = \\frac{by + c}{a} \\\\ y = \\frac{-n \\pm \\sqrt{n^{2}-4mo}}{2m} \\end{matrix} \\right. \\\\ `;
+    if(!isInit){
+        txt += `&\\Leftrightarrow  \\left\\{ \\begin{matrix} x = \\frac{${B}y + ${Cc}}{${A}} \\\\ y = \\frac{-${N} \\pm \\sqrt{${N}^{2}-4${M}\\times${O}}}{2${M}} \\end{matrix} \\right. \\\\ `;
+        txt += `P1 = \\left\\{\\begin{matrix} x = \\frac{${B}y + ${Cc}}{${A}} \\\\ y = \\frac{-${N} + \\sqrt{${N}^{2}-4${M}\\times${O}}}{2${M}} \\end{matrix} \\right\\} &\\;`
+        txt += `P2 = \\left\\{\\begin{matrix} x = \\frac{${B}y + ${Cc}}{${A}} \\\\ y = \\frac{-${N} - \\sqrt{${N}^{2}-4${M}\\times${O}}}{2${M}} \\end{matrix} \\right\\} \\\\`
+        txt += `P1 = \\left\\{\\begin{matrix} ${x1} \\\\ ${y1} \\end{matrix} \\right\\} &\\;`
+        txt += `P2 = \\left\\{\\begin{matrix} ${x2} \\\\ ${y2} \\end{matrix} \\right\\} &\\;`
+    }
+    else{
+        txt += `P1 = \\left\\{\\begin{matrix} x = \\frac{by + c}{a} \\\\ y = \\frac{-n + \\sqrt{n^{2}-4mo}}{2m} \\end{matrix} \\right\\} &\\;`
+        txt += `P2 = \\left\\{\\begin{matrix} x = \\frac{by + c}{a} \\\\ y = \\frac{-n - \\sqrt{n^{2}-4mo}}{2m} \\end{matrix} \\right\\}`
+    }
+    txt +=`\\end{align}$$`;
+    
     mathTerminal.innerHTML = txt;
     MathJax.typeset();
 }
