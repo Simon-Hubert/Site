@@ -27,6 +27,34 @@ class Project{
 
 }
 
+class GameProject extends Project{
+    constructor(name, link, image, description, engine, year, team){
+        super(name, "Game Dev", link, image, description);
+        this.engine = engine;
+        this.year = year;
+        this.team = team;
+    }
+
+    toString(){
+        return `<div class="window">
+                    <div class="header">
+                        <h1>${this.name}</h1>
+                        <div class="cross">X</div>
+                    </div>
+                    <div class="window-content">
+                        <div class="txt-content">
+                            <img src="${this.image}" alt="">
+                            <p>${this.description}</p>
+                        </div>
+                        <p>${this.engine} - ${this.year} - ${this.team} people </p>
+                        <div class="window-buttons">
+                            <button onclick="window.location.href='${this.link}'">GO TO</button>
+                        </div>
+                    </div>
+                </div>`;
+    }
+}
+
 function RandomOffset(element){
     let length = 80;
     let x = Math.floor((Math.random()-0.5)*length);
@@ -45,7 +73,11 @@ function SetList(list, name){
 }
 
 let Projects = [
-    new Project("Check Mates", "Game Dev", "https://play.google.com/store/apps/details?id=com.Mono8.CheckMates&hl=FR", "", "Les echecs mais en mieux"),
+    new GameProject("Check Mates", "https://vanillou-39.itch.io/check-mates", "/images/CheckMates.png", "Puzzles d'échec revisités avec de nouvelles règles et des pouvoirs !", "Unity", "2023", "8"),
+    new GameProject("StationLess", "https://steambotart.itch.io/stationless", "/images/StationLess.png", "Metro Boulot Dodo dans une experience narrative", "Unity", "2026", "15"),
+    new GameProject("Out of Reach", "https://elfumisto.itch.io/out-of-reach", "/images/OutOfReach.png", "Jeu VR d'exploration Spaciale", "Unreal", "2026", "12"),
+    new GameProject("8th Turtle Street", "https://eleanoretht.itch.io/8-turtle-street", "/images/8TurtleStreet.png", "Jeu mobile narratif dans une sorée etudiante", "Unity", "2023", "8"),
+    new GameProject("Lizzzard Wizards", "https://sakripan.itch.io/lizzzard-wizard", "/images/LizzzardWizard.jpg", "Couch Game de coopétition ou des lezards cambriolent une école de magie", "Unreal", "2024", "11"),
     new Project("Line Circle Intersection", "Maths", "pages/Maths/LineCircleIntersect/LineCircleIntersectionSolver.html", "", "Un solveur d'equation mathématiques"),
 ];
 
