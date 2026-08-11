@@ -50,31 +50,33 @@ body {
     column-gap: 80px;
 }
 
-.desc p,img,ul{
-    padding-bottom: 25px;
-}
+.desc {
+    p,img,ul{
+        padding-bottom: 25px;
+    }
 
-.desc p {
-    text-align: justify;
-}
+    p {
+        text-align: justify;
+    }
 
-.desc h2,h3{
-    font-size: larger;
-    font-weight: bold;
-    padding-bottom: 35px;
-}
+    h2,h3{
+        font-size: larger;
+        font-weight: bold;
+        padding-bottom: 35px;
+    }
 
-.desc h3{
-    text-align: left;
-}
+    h3{
+        text-align: left;
+    }
 
-.desc ul{
-    list-style-type: square;
-    list-style-position: inside;
-}
+    ul{
+        list-style-type: square;
+        list-style-position: inside;
+    }
 
-.desc li{
-    padding-bottom: 5px;
+    li{
+        padding-bottom: 5px;
+    }
 }
 
 .main_card{
