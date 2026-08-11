@@ -78,15 +78,63 @@ let Projects = [
     new GameProject("Out of Reach", "https://elfumisto.itch.io/out-of-reach", "/images/OutOfReach.png", "Jeu VR d'exploration Spaciale", "Unreal", "2026", "12"),
     new GameProject("8th Turtle Street", "https://eleanoretht.itch.io/8-turtle-street", "/images/8TurtleStreet.png", "Jeu mobile narratif dans une sorée etudiante", "Unity", "2023", "8"),
     new GameProject("Lizzzard Wizards", "https://sakripan.itch.io/lizzzard-wizard", "/images/LizzzardWizard.jpg", "Couch Game de coopétition ou des lezards cambriolent une école de magie", "Unreal", "2024", "11"),
-    new Project("Line Circle Intersection", "Maths", "pages/Maths/LineCircleIntersect/LineCircleIntersectionSolver.html", "", "Un solveur d'equation mathématiques"),
+    new Project("Line Circle Intersection", "Maths", "/pages/Maths/LineCircleIntersect/LineCircleIntersectionSolver.html", "/images/LineCircle.png", "Un solveur d'equation mathématiques"),
+    new Project("SceneMap", "Tools", "/pages/Tools/SceneMap.html", "/images/SceneMap.gif", "Outil pour Unity permettant de relier des scenes en utilisant GraphView"),
+    new Project("HierarchySequence", "Tools",  "/pages/Tools/HierarchySequence.html", "/images/HierarchySequences/Sequences-1.png", "Outil pour Unity permettant d'organiser une sequence d'action et d'evenements directement depuis la Hierarchie"),
 ];
+
+function GetPageList(active){
+    let PageList = ["Maths", "Tools", "VideoGames"]
+    let extensionList = ["ini", "pkg", "exe"]
+
+    let txt = "";
+
+    if(active == "Home") txt += `<a class="active" href=""><span>Home</span><span>txt</span></a>`;
+    else txt += `<a href="/index.html"><span>Home</span><span>txt</span></a>`;
+
+    for (let i = 0; i < PageList.length; i++) {
+        var element = PageList[i];
+        if (active == element) txt += `<a class="active" href="/pages/${element}/main${element}.html"><span>${element}</span><span>${extensionList[i]}</span></a>`;
+        else txt += `<a href="/pages/${element}/main${element}.html"><span>${element}</span><span>${extensionList[i]}</span></a>`;
+    }
+
+    return txt;
+}
+
+function SetPageList(){
+    var elems = document.getElementsByClassName("pagelist");
+
+    for (let i = 0; i < elems.length; i++) {
+        const element = elems[i];
+        var active = element.getAttribute(`page`);
+        element.innerHTML = GetPageList(active)
+    };
+}
+
+function shuffle(array) {
+  let currentIndex = array.length;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+
+    // Pick a remaining element...
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+}
 
 
 window.onload = function(){
 
+    shuffle(Projects)
+
     let projectList = document.getElementById("project-list");
     let mathList = document.getElementById("math-project-list");
-    let musicList = document.getElementById("music-project-list");
+    let toolList = document.getElementById("tools-project-list");
     let gameDevList = document.getElementById("gamedev-project-list");
 
     if(projectList){
@@ -95,8 +143,10 @@ window.onload = function(){
         );
     }
     SetList(mathList, "Maths");
-    SetList(musicList, "Music");
+    SetList(toolList, "Tools");
     SetList(gameDevList, "Game Dev");
+
+    SetPageList();
 
     let projectWindows = document.getElementsByClassName("window");
     Array.prototype.forEach.call(projectWindows, RandomOffset);

@@ -16,7 +16,7 @@
 body {
     background-color: var(--black);
     color: var(--cntcol);
-    font-family: 'Public Pixel',"Ubuntu", sans-serif;
+    font-family: 'Public Pixel','Super Legend Boy',"Ubuntu", sans-serif;
 }
 
 .outer {
@@ -36,6 +36,45 @@ body {
     margin-left: auto;
     margin-right: auto;
     max-width: 65%;
+}
+
+.inner > h1 {
+    font-size: x-large;
+    padding-bottom: 50px;
+}
+
+.flex {
+    display: flex;
+    object-fit: fill;
+    align-items: center;
+    column-gap: 80px;
+}
+
+.desc p,img,ul{
+    padding-bottom: 25px;
+}
+
+.desc p {
+    text-align: justify;
+}
+
+.desc h2,h3{
+    font-size: larger;
+    font-weight: bold;
+    padding-bottom: 35px;
+}
+
+.desc h3{
+    text-align: left;
+}
+
+.desc ul{
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.desc li{
+    padding-bottom: 5px;
 }
 
 .main_card{
@@ -76,8 +115,7 @@ body {
     
 }
   
-.blurred-wrapper {
-    
+.blurred-wrapper {  
     position: absolute;
     filter: blur(1rem);
     
@@ -85,7 +123,6 @@ body {
       var(--blur),
       0.001
     )
-      
 }
   
 .blurred {
@@ -165,7 +202,7 @@ body {
 .txt-content img{
     flex: 1;
     width: 100%;
-    max-width: 300px;
+    max-width: 200px;
 }
 
 .window-buttons{

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/super-legend-boy" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" type="image/png" href=""> <!-- Mettre l'icone-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showmielle</title>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="date" id="date"></div>
+        <div class="pagelist" page="Tools">
+        </div>
+    </div>
+
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <h1>Hierarchy Sequences</h1>
+                <div class="desc">
+                    <p> HierarchySequences est un plugin unity permettant d'organiser et de parametrer des sequences de jeu directement depuis la hierarchie du moteur</p>
+                    <img src="/images/HierarchySequences/Sequences-1.png">
+                    <p>Cet Outil a été créé pendant le developpment de <a href="/index.html">StationLess</a> il nous a permis de créer et d'itérer rapidement et facilement sur les cinematiques et les transitions dans le jeu</p>
+                    <h2>Tasks</h2>
+                    <ul>
+                        <li>Utilisation de l'async await en C#</li>
+                        <li>Customisation de l'editeur de l'Unity</li>
+                        <li>Changement de l'UI de la hierarchie</li>
+                    </ul>
+                    <h2>Features</h2>
+                    <h3>Sequencing</h3>
+                    <p>Les elements se déclenchent dans l'ordre des objets de la hierarchie avec un timing précis.</p>
+                    <h3>Warnings</h3>
+                    <div class="flex">
+                        <img src="/images/HierarchySequences/Sequences-2.png" width="250">
+                        <p>Lorsqu'un élément est mal paramétré, un warning est directement visible dans la hierarchie.</p>
+                    </div>
+                    <h3>Add Button</h3>
+                    <div class="flex">
+                        <img src="/images/HierarchySequences/Sequences-3.png" width="750">
+                        <p>Un bouton "Add Item" est présent et permet de chercher et d'ajouter automatiquement un nouveau Sequencable dans la sequence.</p>
+                    </div>
+                    <h3>Sequencables</h3>
+                    <p>liste non exhaustive des Sequencables présent dans l'outil :</p>
+                    <ul>
+                        <li>Activer/Desactiver un Game Object</li>
+                        <li>Activer/Desactiver un MonoBehaviour</li>
+                        <li>Attendre x secondes</li>
+                        <li>Deplacer des Transform</li>
+                        <li>Jouer une autre Sequence</li>
+                        <li>Jouer des Sequencable en parallèle</li>
+                        <li>Lancer des UnityEvents</li>
+                        <li>Appliquer des PostProcess</li>
+                        <li>Lancer une Animation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/time.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>
