@@ -8,15 +8,15 @@
 }
 
 :root {
-    --bgcol: white;
-    --cntcol: #ff00c8;
-    --black:  #080220;
+    --bgcol: #d8cab8; /*white;*/
+    --cntcol: #8F56E1; /*#ff00c8;*/
+    --black: #141216;/* #080220;*/
 }
 
 body {
     background-color: var(--black);
     color: var(--cntcol);
-    font-family: 'Public Pixel','Super Legend Boy',"Ubuntu", sans-serif;
+    font-family: 'Fira Code', 'Public Pixel','Super Legend Boy',"Ubuntu", sans-serif;
 }
 
 .outer {
@@ -182,6 +182,7 @@ body {
 .window .window-content{
     background-color: var(--cntcol);
     color: var(--bgcol);
+    font-size: larger;
     padding: 5px;
     text-align: center;
 }
@@ -303,4 +304,24 @@ body {
 
 .terminal-content{
     padding: 10px 20px;
+}
+
+.multi_button button{
+    margin: 5px;
+    padding: 5px;
+    color: var(--cntcol);
+    border-width: 4px;
+    border-color: var(--cntcol);
+    border-style: solid;
+    background-color: var(--black);
+}
+
+.multi_button button:hover{
+    color: var(--black);
+    background-color: var(--cntcol);
+}
+
+.multi_button .active{
+    color: var(--black);
+    background-color: var(--cntcol);
 }

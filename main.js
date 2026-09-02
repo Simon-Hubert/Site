@@ -56,7 +56,7 @@ class GameProject extends Project{
 }
 
 function RandomOffset(element){
-    let length = 80;
+    let length = 65;
     let x = Math.floor((Math.random()-0.5)*length);
     let y = Math.floor((Math.random()-0.5)*length);
     element.style.transform = `translate(${x}px,${y}px)`;
@@ -74,11 +74,11 @@ function SetList(list, name){
 
 let Projects = [
     new GameProject("Check Mates", "https://vanillou-39.itch.io/check-mates", "/images/CheckMates.png", "Puzzles d'échec revisités avec de nouvelles règles et des pouvoirs !", "Unity", "2023", "8"),
-    new GameProject("StationLess", "https://steambotart.itch.io/stationless", "/images/StationLess.png", "Metro Boulot Dodo dans une experience narrative", "Unity", "2026", "15"),
-    new GameProject("Out of Reach", "https://elfumisto.itch.io/out-of-reach", "/images/OutOfReach.png", "Jeu VR d'exploration Spaciale", "Unreal", "2026", "12"),
-    new GameProject("8th Turtle Street", "https://eleanoretht.itch.io/8-turtle-street", "/images/8TurtleStreet.png", "Jeu mobile narratif dans une sorée etudiante", "Unity", "2023", "8"),
+    new GameProject("StationLess", "https://steambotart.itch.io/stationless", "/images/Stationless.png", "Metro Boulot Dodo dans une expérience narrative", "Unity", "2026", "15"),
+    new GameProject("Out of Reach", "https://elfumisto.itch.io/out-of-reach", "/images/OutOfReach.png", "Jeu VR d'exploration spaciale", "Unreal", "2026", "12"),
+    new GameProject("8th Turtle Street", "https://eleanoretht.itch.io/8-turtle-street", "/images/8TurtleStreet.png", "Jeu mobile narratif dans une sorée étudiante", "Unity", "2023", "8"),
     new GameProject("Lizzzard Wizards", "https://sakripan.itch.io/lizzzard-wizard", "/images/LizzzardWizard.jpg", "Couch Game de coopétition ou des lezards cambriolent une école de magie", "Unreal", "2024", "11"),
-    new Project("Line Circle Intersection", "Maths", "/pages/Maths/LineCircleIntersect/LineCircleIntersectionSolver.html", "/images/LineCircle.png", "Un solveur d'equation mathématiques"),
+    new Project("Line Circle Intersection", "Maths", "/pages/Maths/LineCircleIntersect/LineCircleIntersectionSolver.html", "/images/LineCircle.png", "Un solveur d'équations mathématiques"),
     new Project("SceneMap", "Tools", "/pages/Tools/SceneMap.html", "/images/SceneMap.gif", "Outil pour Unity permettant de relier des scenes en utilisant GraphView"),
     new Project("HierarchySequence", "Tools",  "/pages/Tools/HierarchySequence.html", "/images/HierarchySequences/Sequences-1.png", "Outil pour Unity permettant d'organiser une sequence d'action et d'evenements directement depuis la Hierarchie"),
 ];
@@ -114,23 +114,19 @@ function SetPageList(){
 function shuffle(array) {
   let currentIndex = array.length;
 
-  // While there remain elements to shuffle...
   while (currentIndex != 0) {
 
-    // Pick a remaining element...
     let randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex], array[currentIndex]];
   }
 }
 
-
 window.onload = function(){
 
-    shuffle(Projects)
+    //shuffle(Projects)
 
     let projectList = document.getElementById("project-list");
     let mathList = document.getElementById("math-project-list");
