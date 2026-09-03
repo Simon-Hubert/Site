@@ -53,5 +53,7 @@ window.onload = function(){
 
     SetPageList();
     SetMultiButton();
+    let buttons = document.getElementsByClassName("multi_button_child");
+    buttons[0].classList.add("active");
 }
 

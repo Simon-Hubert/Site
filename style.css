@@ -10,13 +10,14 @@
 :root {
     --bgcol: #d8cab8; /*white;*/
     --cntcol: #8F56E1; /*#ff00c8;*/
+    --accent: #AC82E9;
     --black: #141216;/* #080220;*/
 }
 
 body {
     background-color: var(--black);
     color: var(--cntcol);
-    font-family: 'Fira Code', 'Public Pixel','Super Legend Boy',"Ubuntu", sans-serif;
+    font-family: 'Public Pixel','Super Legend Boy',"Ubuntu", sans-serif;
 }
 
 .outer {
@@ -40,7 +41,9 @@ body {
 
 .inner > h1 {
     font-size: x-large;
-    padding-bottom: 50px;
+    font-weight: bolder;
+    padding-bottom: 125px;
+    padding-top: 125px;
 }
 
 .flex {
@@ -76,6 +79,14 @@ body {
 
     li{
         padding-bottom: 5px;
+    }
+
+    a {
+        color: var(--accent)
+    }
+
+    a:visited {
+        color: var(--cntcol)
     }
 }
 
@@ -251,6 +262,12 @@ body {
         left: 0px;
         width: 500px;
         position: relative;
+    }
+    
+    .inner > h1 {
+        font-size: x-large;
+        padding-bottom: 50px;
+        padding-top: 50px;
     }
 }
 

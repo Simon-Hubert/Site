@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/super-legend-boy" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" type="image/png" href=""> <!-- Mettre l'icone-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showmielle</title>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="date" id="date"></div>
+        <div class="pagelist" page="VideoGames">
+        </div>
+    </div>
+
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <h1>Check Mates</h1>
+                <div class="desc">
+                    <p>Check Mates est un jeu mobile de puzzles d'echec. Vous guiderez le roi blanc à travers différents echiquier. Avec des mechaniques inédites comme la fusion ou la téléportation.</p>
+                    <img src="/images/CheckMates.png">
+                    <p>C'est le premier grand projet scolaire que nous avons fait. Avec une équipe de 8 personnes, nous avions un mois et demi pour créer un jeu mobile de reflexion avec le thème Monochrome.</p>
+                    <h2>Mes tâches</h2>
+
+                    <h3>Déplacement des pièces</h3>
+                    <div class="flex">
+                        <img src="/images/CheckMates/Movement.gif" width="250">
+                        <div>
+                            <p>Pour ce jeu, nous avions besoin de pouvoir déplacer des pièces sur une grille en respectant les règles des echecs. Ces déplacements devaient aussi être cohérent avec le game design, donc on peut en plus se déplacer sûr mais pas à travers nos propres pièces.</p>
+                            <p>Les déplacements affichent un highlight sur les cases disponibles.</p>
+                            <p>Chaque pièce a sa propre animation procédurale de déplacement.</p>
+                        </div>
+                    </div>
+
+                    <h3>Post-Process pour un effet TV CRT</h3>
+                    <div class="flex">
+                        <p>Shader de post-process sur unity, inspiré de celui du jeu <a href="https://store.steampowered.com/app/1282730/Loop_Hero/">Loop Hero</a>.</p>
+                        <img src="/images/CheckMates/PostProcess.png" width="200">
+                    </div>
+
+                    <h3>Éditeur d'échiquier</h3>
+                    <div class="flex">
+                        <img src="/images/CheckMates/Editor.gif" width="200">
+                        <div>
+                            <p>Éditeur d'echiquier pour faciliter la création et l'édition de niveaux pour les designers.</p>
+                            <p>Ctrl-Z et Ctrl-Maj-Z fonctionnent.</p>
+                            <p>Possibilité d'effacer.</p>
+                            <p>Fonctionnalité de "Square Fill" pour accélérer le processus de création du layout.</p>
+                        </div>
+                    </div>
+                    <img src="/images/AvailableOnItch.png" width="300">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/time.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>

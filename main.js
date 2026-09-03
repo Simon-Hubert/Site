@@ -73,7 +73,7 @@ function SetList(list, name){
 }
 
 let Projects = [
-    new GameProject("Check Mates", "https://vanillou-39.itch.io/check-mates", "/images/CheckMates.png", "Puzzles d'échec revisités avec de nouvelles règles et des pouvoirs !", "Unity", "2023", "8"),
+    new GameProject("Check Mates", "/pages/VideoGames/CheckMates.html", "/images/CheckMates.png", "Puzzles d'échec revisités avec de nouvelles règles et des pouvoirs !", "Unity", "2023", "8"),//https://vanillou-39.itch.io/check-mates
     new GameProject("StationLess", "https://steambotart.itch.io/stationless", "/images/Stationless.png", "Metro Boulot Dodo dans une expérience narrative", "Unity", "2026", "15"),
     new GameProject("Out of Reach", "https://elfumisto.itch.io/out-of-reach", "/images/OutOfReach.png", "Jeu VR d'exploration spaciale", "Unreal", "2026", "12"),
     new GameProject("8th Turtle Street", "https://eleanoretht.itch.io/8-turtle-street", "/images/8TurtleStreet.png", "Jeu mobile narratif dans une sorée étudiante", "Unity", "2023", "8"),
