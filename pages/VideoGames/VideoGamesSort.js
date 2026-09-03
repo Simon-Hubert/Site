@@ -10,7 +10,8 @@ let gameDevList;
 let Engines = [
     new Engine("All", ""),
     new Engine("Unity", ""),
-    new Engine("Unreal", "")
+    new Engine("Unreal", ""),
+    new Engine("Godot", "")
 ]
 
 function SetMultiButton(){
@@ -43,8 +44,9 @@ function SortBy(index){
         const element = buttons[i];
         if (i == index) element.classList.add("active");
         else element.classList.remove("active")
-        
     }
+    let projectWindows = document.getElementsByClassName("window");
+    Array.prototype.forEach.call(projectWindows, RandomOffset);
 }
 
 window.onload = function(){
@@ -55,5 +57,7 @@ window.onload = function(){
     SetMultiButton();
     let buttons = document.getElementsByClassName("multi_button_child");
     buttons[0].classList.add("active");
+    let projectWindows = document.getElementsByClassName("window");
+    Array.prototype.forEach.call(projectWindows, RandomOffset);
 }
 
