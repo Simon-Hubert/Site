@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/super-legend-boy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" type="image/png" href=""> <!-- Mettre l'icone-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showmielle</title>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="date" id="date"></div>
+        <div class="pagelist" page="Tools">
+        </div>
+    </div>
+
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <h1>Adrian Engine</h1>
+                <div class="desc">
+                    <p>Adrian Engine est un moteur de jeu en C++ basé sur les librairies SDL et entt.</p>
+                    <img src="/images/AdrianEngine/Engine.png" width="800">
+                    <h2>Features</h2>
+
+                    <h3>Inspecteur</h3>
+                    <div class="flex">
+                        <div>
+                            <p>Inspecteur inspiré de celui de Unity</p>
+                            <p>Ajout et Edition de components</p>
+                        </div>
+                        <img src="/images/AdrianEngine/Inspector.png" width="200">
+                    </div>
+
+                    <h3>Components</h3>
+                    <div class="flex">
+                        <img src="/images/AdrianEngine/Components.png">
+                        <div>
+                            <p>De nombreux components usuels inclus de base dans le moteur</p>
+                            <p>Possibilité d'ajouter des components custom</p>
+                            
+                        </div>
+                    </div>
+
+                    <h3>Serialisation</h3>
+                    <div class="flex">
+                    <p>Serialisation de scenes et de components en json. Directement via une macro dans le moteur.</p>
+                    <img src="/images/AdrianEngine/Serialization.png" width="250">
+                    </div>
+
+                    <h3>Packaging</h3>
+                    <p>Il y a 3 cibles de compilation : le moteur, l'editeur et le jeu. Chacune editable et compilé séparément dans des libs ou des executables</p>
+                    <p>Le code de jeu est donc facilement isolé et maintenable.</p>
+                    <p>J'utilise Xmake pour parametrer facilement les builds et le packaging</p>
+
+                    <a href="https://github.com/Simon-Hubert/AdrianEnginePublic"><img src="/images/SocialIcons/GetOnGitHub.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/time.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>

@@ -342,3 +342,8 @@ body {
     color: var(--black);
     background-color: var(--cntcol);
 }
+
+.social_icons img{
+    width: 50px;
+    margin: 20px;
+}

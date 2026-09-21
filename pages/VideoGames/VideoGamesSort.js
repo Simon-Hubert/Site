@@ -50,6 +50,14 @@ function SortBy(index){
 }
 
 window.onload = function(){
+     let socialIcons = document.getElementById("social_icons");
+
+    if(socialIcons){
+        SocialIcons.forEach((element) =>
+            socialIcons.innerHTML += element
+        );
+    }
+
     gameDevList = document.getElementById("gamedev-project-list");
     SetList(gameDevList, "Game Dev");
 

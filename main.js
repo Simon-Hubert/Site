@@ -55,6 +55,17 @@ class GameProject extends Project{
     }
 }
 
+class SocialIcon{
+    constructor(icon, link){
+        this.icon = icon;
+        this.link = link;
+    }
+
+    toString(){
+        return `<a href=${this.link}><img src="${this.icon}"></a>`;
+    }
+}
+
 function RandomOffset(element){
     let length = 65;
     let x = Math.floor((Math.random()-0.5)*length);
@@ -73,16 +84,23 @@ function SetList(list, name){
 }
 
 let Projects = [
-    new GameProject("Check Mates", "/pages/VideoGames/CheckMates.html", "/images/CheckMates.png", "Puzzles d'échec revisités avec de nouvelles règles et des pouvoirs !", "Unity", "2023", "8"),//https://vanillou-39.itch.io/check-mates
+    new GameProject("Check Mates", "/pages/VideoGames/CheckMates.html", "/images/CheckMates.png", "Puzzles d'échecs revisités avec de nouvelles règles et des pouvoirs !", "Unity", "2023", "8"),//https://vanillou-39.itch.io/check-mates
     new GameProject("StationLess", "https://steambotart.itch.io/stationless", "/images/Stationless.png", "Metro Boulot Dodo dans une expérience narrative", "Unity", "2026", "15"),
     new GameProject("Out of Reach", "/pages/VideoGames/OutOfReach.html", "/images/OutOfReach.png", "Jeu VR d'exploration spaciale", "Unreal", "2026", "12"),//https://elfumisto.itch.io/out-of-reach
     new GameProject("Synaptika", "", "/images/Synaptika/Title.jpg", "Jeu VR freelance pour le pôle Léonard De Vinci", "Unity", "2025", "11"),
     new GameProject("8th Turtle Street", "https://eleanoretht.itch.io/8-turtle-street", "/images/8TurtleStreet.png", "Jeu mobile narratif dans une sorée étudiante", "Unity", "2023", "8"),
     new GameProject("Lizzzard Wizards", "https://sakripan.itch.io/lizzzard-wizard", "/images/LizzzardWizard.jpg", "Couch Game de coopétition ou des lezards cambriolent une école de magie", "Unreal", "2024", "11"),
-    new GameProject("Ava", "", "", "Proof of Concept pour le Credit Agricole Assurances, jeu mobile d'aculturation de la jeunesse au produits d'assurance.", "Godot", "2026", "5"),
+    new GameProject("Ava", "", "/images/Ava/Title.png", "Proof of Concept pour le Credit Agricole Assurances, jeu mobile d'aculturation de la jeunesse aux produits d'assurance.", "Godot", "2026", "5"),
+    new Project("Adrian Engine", "Tools", "/pages/Tools/AdrianEngine.html", "/images/AdrianEngine/Components.png", "Moteur de jeu ECS developpé en C++"), //https://github.com/Simon-Hubert/AdrianEnginePublic
     new Project("Line Circle Intersection", "Maths", "/pages/Maths/LineCircleIntersect/LineCircleIntersectionSolver.html", "/images/LineCircle.png", "Un solveur d'équations mathématiques"),
     new Project("SceneMap", "Tools", "/pages/Tools/SceneMap.html", "/images/SceneMap.gif", "Outil pour Unity permettant de relier des scenes en utilisant GraphView"),
     new Project("HierarchySequence", "Tools",  "/pages/Tools/HierarchySequence.html", "/images/HierarchySequences/Sequences-1.png", "Outil pour Unity permettant d'organiser une sequence d'action et d'evenements directement depuis la Hierarchie"),
+];
+
+let SocialIcons = [
+    new SocialIcon("/images/SocialIcons/LinkedIn.png", "https://www.linkedin.com/in/simon-hubert-gp/"), //linkedIn
+    new SocialIcon("/images/SocialIcons/GitHub.webp","https://github.com/Simon-Hubert"), //GitHub
+    new SocialIcon("/images/SocialIcons/Itch.webp", "https://showmielle.itch.io") // Itch
 ];
 
 function GetPageList(active){
@@ -145,6 +163,14 @@ window.onload = function(){
     SetList(gameDevList, "Game Dev");
 
     SetPageList();
+
+    let socialIcons = document.getElementById("social_icons");
+
+    if(socialIcons){
+        SocialIcons.forEach((element) =>
+            socialIcons.innerHTML += element
+        );
+    }
 
     let projectWindows = document.getElementsByClassName("window");
     Array.prototype.forEach.call(projectWindows, RandomOffset);
