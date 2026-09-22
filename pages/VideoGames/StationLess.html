@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/super-legend-boy" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" type="image/png" href=""> <!-- Mettre l'icone-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showmielle</title>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="date" id="date"></div>
+        <div class="pagelist" page="VideoGames">
+        </div>
+    </div>
+
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                
+                <h1>StationLess</h1>
+                <div class="desc">
+                    <p>StationLess est le premier projet de fin d'etude sur lequel j'ai travaillé. </p>
+                    <img src="/images/Stationless.png" width="500">
+                    <h2>Mes tâches</h2>
+                    <p>Sur StationLess j'ai pris le rôle de Lead game programmer, j'ai donc géré l'organisation des tâches de mon équipe en plus de mes tâches de game programmer.</p>
+                    
+                    <h3>Minigames Architecture</h3>
+                    <div class="flex">
+                        <div>
+                            <img src="/images/StationLess/Avion.jpg" width="300">
+                            <img src="/images/StationLess/Ad Diagram.png" width="300">
+                        </div>
+                        <div>
+                            <p>StationLess est un jeu avec plusieurs mini jeux qui doivent s'enchainer et transititioner facilement. Pour cela nous avons développé une architecture permettant d'abstraire les minijeux (Ad).</p>
+                            <p>Cette abstraction marche en tandem avec mon <a href="/pages/Tools/HierarchySequence.html">outil de sequencing</a>. Cela permet aux designers de facilement réordonner et modifier les minijeux depuis la hierarchie de Unity.  </p>
+                        </div>
+                    </div>
+
+                    <h3>HierarchySequence</h3>
+                    <p>C'est pour ce projet que j'ai commencé à développer mon <a href="/pages/Tools/HierarchySequence.html">outil de sequencing</a>. StationLess etant un jeu basé sur la cinématographie et sur les transitions d'écrans.</p>
+                    <p>Cet outil nous a permis de beaucoup itérer sur les mises en scene</p>
+                    <div class="flex">
+                        <img src="/images/StationLess/StationLess-Intro.gif" width="800">
+                        <img src="/images/StationLess/IntroSequence.png">
+                    </div>
+
+                    <h3>Transition du metro vers les pubs</h3>
+                    <div class="flex">
+                        <img src="/images/StationLess/stationless.gif" width="500">
+                        <div>
+                            <p>Shader HLSL pour Unity URP, c'est un shader Transparent qui traite la lumière, donc il à nécessité quelques ajustements pour être fonctionnel.</p>
+                            <p>Le shader est également à profondeur dynamique, permettant la transitions seamless vers le fullscreen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/time.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>
